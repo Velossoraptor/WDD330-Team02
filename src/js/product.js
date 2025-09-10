@@ -1,20 +1,16 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+// Import necessary modules and functions
+import { getParam } from "./utils.mjs";
+import ProductDetails from "./ProductDetails.mjs";
 import ProductData from "./ProductData.mjs";
 
+// Create a new ProductData instance for tents
 const dataSource = new ProductData("tents");
+// Get the product ID from the URL parameters
+const productId = getParam("product");
 
-function addProductToCart(product) {
-  const cart = getLocalStorage("so-cart") || []; // get existing cart or empty array
-  cart.push(product); // add new product to cart array
-  setLocalStorage("so-cart", cart); // save updated cart back to local storage
-}
-// add to cart button event handler
-async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
-  addProductToCart(product);
-}
+// Create a new ProductDetails instance and initialize it
+const product = new ProductDetails(productId, dataSource);
+product.init();
 
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+// For testing purposes, log the result of finding a product by ID
+// console.log(dataSource.findProductById(productId));
