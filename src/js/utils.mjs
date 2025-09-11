@@ -36,6 +36,7 @@ export function getParam(param){
   return product;
 }
 
+// New function to render a list with a template
 export function renderListWithTemplate(TemplateFn, parentElement, list, position = "afterbegin", clear = false) {
   if(clear) parentElement.innerHTML = "";
     const html = list.map(TemplateFn);

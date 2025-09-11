@@ -6,4 +6,4 @@ const productList = new ProductList("tents", productData, document.querySelector
 productList.init();
 
 // For testing purposes, log the fetched data
-productData.getData().then(data => console.log(data));
+// productData.getData().then(data => console.log(data));

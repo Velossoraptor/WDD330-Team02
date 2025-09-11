@@ -17,12 +17,11 @@ export default class ProductList {
     this.dataSource = dataSource;
     this.listElement = listElement;
   }
-  async init() {
+  async init() { // initializes the product list by fetching data and rendering it
     const list = await this.dataSource.getData();
     this.renderList(list);
   }
-  renderList(list) {
+  renderList(list) { // renders the list of products to the page
     renderListWithTemplate(productCardTemplate, this.listElement, list);
-    // this.listElement.innerHTML = list.map(productCardTemplate).join("");
   }
 }
