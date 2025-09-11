@@ -8,8 +8,11 @@ function convertToJson(res) {
 
 export default class ProductData {
   constructor(category) {
+    if (!category || typeof category !== "string") {
+      throw new Error("ProductData: A valid category string is required!");
+    }
     this.category = category;
-    this.path = `../json/${this.category}.json`;
+    this.path = `/json/${this.category}.json`;
   }
   getData() {
     return fetch(this.path)
