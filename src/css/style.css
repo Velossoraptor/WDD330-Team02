@@ -99,6 +99,12 @@ p {
   color: var(--tertiary-color);
 }
 
+.discount {
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-style: italic;
+}
+
 button {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
