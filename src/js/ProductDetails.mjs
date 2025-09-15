@@ -17,9 +17,9 @@ export default class ProductDetails {
       .addEventListener("click", this.addToCart.bind(this));
   }
   addProductToCart(product) {
-    const cart = getLocalStorage("so-cart") || []; // get existing cart or empty array
-    cart.push(product); // add new product to cart array
-    setLocalStorage("so-cart", cart); // save updated cart back to local storage
+    const cartItems = getLocalStorage("so-cart") || []; // get existing cart or empty array
+    cartItems.push(product); // add new product to cart array
+    setLocalStorage("so-cart", cartItems); // save updated cart back to local storage
   }
   async renderProductDetails(product) {
     // use product details to populate the page
