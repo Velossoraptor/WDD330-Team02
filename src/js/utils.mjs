@@ -72,7 +72,6 @@ export async function loadHeader() {
   const headerElement = document.querySelector("#main-header");
 
   renderWithTemplate(headerTemp, headerElement);
-  // console.log(headerTemp);
 }
 
 export async function loadFooter() {

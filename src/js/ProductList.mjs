@@ -1,6 +1,7 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
+  console.log(`current product: ${product}`);
   if (product.FinalPrice < product.SuggestedRetailPrice) {
     const discount = product.FinalPrice / product.SuggestedRetailPrice;
     const discountPercent = Math.round((1 - discount) * 100);
