@@ -1,7 +1,10 @@
 // Import necessary modules and functions
-import { getParam } from "./utils.mjs";
+import { getParam, loadHeader, loadFooter } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 import ProductData from "./ProductData.mjs";
+
+loadHeader();
+loadFooter();
 
 // Create a new ProductData instance for tents
 const dataSource = new ProductData("tents");
