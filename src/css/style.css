@@ -247,6 +247,21 @@ button {
   grid-column: 3;
 }
 
+/* Start category nav */
+.category-nav {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-nav img {
+  width: 10%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* End Catgory Nav*/
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;

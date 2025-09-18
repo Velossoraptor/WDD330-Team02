@@ -1,3 +1,5 @@
+// const baseURL = import.meta.env.VITE_SERVER_URL;
+
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 export default class ProductDetails {

@@ -7,7 +7,7 @@ loadHeader();
 loadFooter();
 
 // Create a new ProductData instance for tents
-const dataSource = new ProductData("tents");
+const dataSource = new ProductData();
 // Get the product ID from the URL parameters
 const productId = getParam("product");
 
