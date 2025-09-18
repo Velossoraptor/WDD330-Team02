@@ -2,6 +2,7 @@ import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 import { loadHeader, loadFooter, getParam } from "./utils.mjs";
 
+const title = document.querySelector("h2");
 loadHeader();
 loadFooter();
 
@@ -14,3 +15,7 @@ const listElement = document.querySelector(".product-list");
 const myList = new ProductList(category, dataSource, listElement);
 // finally call the init method to show the products
 myList.init();
+
+if (category !== null) {
+  title.textContent = `Top Products: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
+}
