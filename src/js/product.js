@@ -6,7 +6,7 @@ import ProductData from "./ProductData.mjs";
 loadHeader();
 loadFooter();
 
-// Create a new ProductData instance for tents
+// Create a new ProductData instance 
 const dataSource = new ProductData();
 // Get the product ID from the URL parameters
 const productId = getParam("product");

@@ -6,7 +6,7 @@ function productCardTemplate(product) {
     const discount = product.FinalPrice / product.SuggestedRetailPrice;
     const discountPercent = Math.round((1 - discount) * 100);
     return `<li class="product-card">
-            <a href="product_pages/?product=${product.Id}">
+            <a href="/product_pages/?product=${product.Id}">
                 <img src="${product.Image}" alt="Image of ${product.Name}">
                 <h3 class="card__brand">${product.Brand.Name}</h2>
                 <h2 class="card__name">${product.NameWithoutBrand}</h3>
@@ -15,7 +15,7 @@ function productCardTemplate(product) {
         </li>`;
   }
   return `<li class="product-card">
-            <a href="product_pages/?product=${product.Id}">
+            <a href="/product_pages/?product=${product.Id}">
                 <img src="${product.Image}" alt="Image of ${product.Name}">
                 <h3 class="card__brand">${product.Brand.Name}</h2>
                 <h2 class="card__name">${product.NameWithoutBrand}</h3>
