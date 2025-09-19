@@ -5,7 +5,6 @@ import { loadHeader, loadFooter } from "./utils.mjs";
 loadHeader();
 loadFooter();
 
-
 const productData = new ProductData("tents");
 const productList = new ProductList(
   "tents",

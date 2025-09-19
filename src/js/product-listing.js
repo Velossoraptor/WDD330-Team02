@@ -1,0 +1,21 @@
+import ProductData from "./ProductData.mjs";
+import ProductList from "./ProductList.mjs";
+import { loadHeader, loadFooter, getParam } from "./utils.mjs";
+
+const title = document.querySelector("h2");
+loadHeader();
+loadFooter();
+
+const category = getParam("category");
+// first create an instance of the ProductData class.
+const dataSource = new ProductData();
+// then get the element you want the product list to render in
+const listElement = document.querySelector(".product-list");
+// then create an instance of the ProductList class and send it the correct information.
+const myList = new ProductList(category, dataSource, listElement);
+// finally call the init method to show the products
+myList.init();
+
+if (category !== null) {
+  title.textContent = `Top Products: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
+}
