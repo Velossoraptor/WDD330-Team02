@@ -3,7 +3,6 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 export default class ProductDetails {
-
   constructor(productId, dataSource) {
     this.productId = productId;
     this.product = {};
@@ -41,9 +40,19 @@ function productDetailsTemplate(product) {
   productImage.src = product.Images.PrimaryLarge;
   productImage.alt = product.NameWithoutBrand;
 
-  document.getElementById("productPrice").textContent = `$${product.FinalPrice}`;
-  document.getElementById("productColor").textContent = product.Colors[0].ColorName;
-  document.getElementById("productDesc").innerHTML = product.DescriptionHtmlSimple;
+  if (product.FinalPrice < product.SuggestedRetailPrice) {
+    const discount = product.FinalPrice / product.SuggestedRetailPrice;
+    const discountPercent = Math.round((1 - discount) * 100);
+    document.getElementById("productPrice").textContent =
+      `$${product.FinalPrice} --- ${discountPercent}% OFF`;
+  } else {
+    document.getElementById("productPrice").textContent =
+      `$${product.FinalPrice}`;
+  }
+  document.getElementById("productColor").textContent =
+    product.Colors[0].ColorName;
+  document.getElementById("productDesc").innerHTML =
+    product.DescriptionHtmlSimple;
 
   document.getElementById("addToCart").dataset.id = product.Id;
 }
