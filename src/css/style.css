@@ -249,9 +249,14 @@ button {
 
 /* Start category nav */
 .category-nav {
-  margin-top: 300px;
+  /* margin-top: 50px; */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.category-nav a{
+  display: flex;
+  align-items: center;
 }
 
 .category-nav img {
