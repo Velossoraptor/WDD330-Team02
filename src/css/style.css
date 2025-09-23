@@ -249,7 +249,7 @@ button {
 
 /* Start category nav */
 .category-nav {
-  margin-top: 100px;
+  margin-top: 300px;
   display: flex;
   justify-content: space-between;
 }
@@ -261,6 +261,12 @@ button {
 }
 
 /* End Catgory Nav*/
+
+/* Start Cart total */
+.cart-footer-hide {
+  display: none;
+}
+/* End Cart total */
 
 @media screen and (min-width: 500px) {
   body {
