@@ -2,6 +2,7 @@ import { getLocalStorage, loadHeader, loadFooter } from "./utils.mjs";
 import { cartItemTemplate } from "./ShoppingCart.mjs";
 
 const cartFooter = document.querySelector(".cart-footer-hide");
+const cartTotal = document.querySelector(".cart-total");
 
 loadHeader();
 loadFooter();
@@ -15,7 +16,7 @@ function renderCartContents() {
     cartItems.map((item) => {
       total += item.FinalPrice;
     });
-    cartFooter.innerHTML = `Total: $${total}`;
+    cartTotal.innerHTML = `Total: $${total}`;
     cartFooter.classList.remove("cart-footer-hide");
   } else {
     cartFooter.classList.add("cart-footer-hide");
