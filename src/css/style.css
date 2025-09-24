@@ -249,9 +249,14 @@ button {
 
 /* Start category nav */
 .category-nav {
-  margin-top: 100px;
+  /* margin-top: 50px; */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.category-nav a{
+  display: flex;
+  align-items: center;
 }
 
 .category-nav img {
@@ -261,6 +266,12 @@ button {
 }
 
 /* End Catgory Nav*/
+
+/* Start Cart total */
+.cart-footer-hide {
+  display: none;
+}
+/* End Cart total */
 
 @media screen and (min-width: 500px) {
   body {
