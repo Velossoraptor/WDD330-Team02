@@ -1,16 +1,16 @@
 const baseURL = import.meta.env.VITE_SERVER_URL;
 
-function convertToJson(res) {
+async function convertToJson(res) {
+  const response = await res.json();
   if (res.ok) {
-    return res.json();
+    return response;
   } else {
-    throw new Error("Bad Response");
+    throw { name: "Service Error", message: response };
   }
 }
 
 export default class ExternalServices {
-  constructor() {
-  }
+  constructor() {}
   async getData(category) {
     // fetches product data from the specified JSON file
     const response = await fetch(`${baseURL}products/search/${category}`);
@@ -19,15 +19,12 @@ export default class ExternalServices {
   }
   async findProductById(id) {
     // new method to find a product by its ID
-    // const products = await this.getData();
-    // return products.find((item) => item.Id === id);
     const response = await fetch(`${baseURL}product/${id}`);
     const data = await convertToJson(response);
-    console.log(data.Result);
     return data.Result;
   }
 
-  async checkout(payload){
+  async checkout(payload) {
     const options = {
       method: "POST",
       headers: {
