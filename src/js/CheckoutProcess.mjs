@@ -1,4 +1,7 @@
 import { getLocalStorage } from "./utils.mjs";
+import ExternalServices from "./ExternalServices.mjs";
+
+const services = new ExternalServices();
 
 const subtotal = document.querySelector(".subtotal");
 const tax = document.querySelector(".tax");
@@ -20,7 +23,7 @@ export default class CheckoutProcess {
     this.calculateItemSubTotal();
   }
 
-  calculateItemSubtotal() {
+  calculateItemSubTotal() {
     if (this.list.length !== 0) {
       this.list.map((item) => {
         this.itemTotal += item.FinalPrice;
@@ -41,4 +44,41 @@ export default class CheckoutProcess {
     shipping.innerHTML = `Shipping: $${this.shipping.toFixed(2)}`;
     taxableTotal.innerHTML = `Total: $${this.orderTotal.toFixed(2)}`;
   }
+
+  async checkout(form) {
+    const formElement = document.querySelector(".checkout-form");
+    const formData = formDataToJSON(formElement);
+    formData["orderDate"] = new Date().toISOString();
+    formData["orderTotal"] = this.orderTotal;
+    formData["tax"] = this.tax;
+    formData["shipping"] = this.shipping;
+    formData["items"] = packageItems(this.list);
+
+    try{
+        const response = await services.checkout(formData);
+        console.log(response);
+    } catch (err){
+        console.log(err);
+    }
+  }
+}
+
+function packageItems(items) {
+  return items.map((item) => ({
+    id: item.Id,
+    name: item.Name,
+    price: item.FinalPrice,
+    quantity: 1,
+  }));
+}
+
+function formDataToJSON(formElement) {
+  const formData = new FormData(formElement),
+    convertedJSON = {};
+
+  formData.forEach(function (value, key) {
+    convertedJSON[key] = value;
+  });
+
+  return convertedJSON;
 }

@@ -26,28 +26,56 @@
                 <legend>Personal Information</legend>
                 <label
                   >First Name
-                  <input type="text" id="fName" name="fName" required
+                  <input
+                    type="text"
+                    id="fname"
+                    name="fname"
+                    value="Jane"
+                    required
                 /></label>
                 <label
                   >Last Name
-                  <input type="text" id="lName" name="lName" required
+                  <input
+                    type="text"
+                    id="lname"
+                    name="lname"
+                    value="Doe"
+                    required
                 /></label>
               </fieldset>
 
               <fieldset>
                 <legend>Billing/Shipping Information</legend>
                 <label
-                  >Address
-                  <input type="text" id="address" name="address" required
+                  >Street Address
+                  <input
+                    type="text"
+                    id="street"
+                    name="street"
+                    value="First Street"
+                    required
                 /></label>
                 <label
-                  >City <input type="text" id="city" id="city" required
+                  >City
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    value="Hollywood"
+                    required
                 /></label>
                 <label
-                  >State <input type="text" id="state" id="state" required
+                  >State
+                  <input
+                    type="text"
+                    id="state"
+                    name="state"
+                    value="Montanna"
+                    required
                 /></label>
                 <label
-                  >Zip Code <input type="text" id="zCode" id="zCode" required
+                  >Zip Code
+                  <input type="text" id="zip" name="zip" value="12345" required
                 /></label>
               </fieldset>
 
@@ -55,23 +83,29 @@
                 <legend>Payment Information</legend>
                 <label
                   >Credit Card Number
-                  <input type="text" id="cNum" id="cNum" required
+                  <input
+                    type="text"
+                    id="cardNumber"
+                    name="cardNumber"
+                    value="1234123412341234"
+                    required
                 /></label>
                 <label
                   >Expiration Date
-                  <input type="text" id="expDate" id="expDate" required
+                  <input
+                    type="text"
+                    id="expiration"
+                    name="expiration"
+                    value="08/37"
+                    required
                 /></label>
                 <label
                   >Security Code
-                  <input type="text" id="sCode" id="sCode" required
+                  <input type="text" id="code" name="code" value="123" required
                 /></label>
               </fieldset>
 
-              <input
-                type="submit"
-                value="Pay Now!"
-                class="checkout-form-button"
-              />
+              <button type="submit" class="checkout-button">Pay Now!</button>
             </form>
           </div>
           <div class="summary-container">

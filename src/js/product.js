@@ -1,13 +1,13 @@
 // Import necessary modules and functions
 import { getParam, loadHeader, loadFooter } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 
 loadHeader();
 loadFooter();
 
-// Create a new ProductData instance 
-const dataSource = new ProductData();
+// Create a new ExternalServices instance 
+const dataSource = new ExternalServices();
 // Get the product ID from the URL parameters
 const productId = getParam("product");
 
