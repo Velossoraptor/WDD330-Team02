@@ -9,5 +9,4 @@ const productList = new ProductList(
 );
 productList.init();
 
-// For testing purposes, log the fetched data
-// productData.getData().then(data => console.log(data));
+
