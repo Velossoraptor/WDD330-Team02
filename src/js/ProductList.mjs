@@ -1,9 +1,13 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
-  const hasDiscount = product.FinalPrice < product.SuggestedRetailPrice;
+  if (!product || !product.Id || !product.Image || !product.Name || !product.Brand?.Name || !product.NameWithoutBrand || !product.FinalPrice || !product.SuggestedRetailPrice) {
+    return"";
+  }
+  
+  const hasDiscount = product.finalPrice < product.suggestedRetailPrice; 
   const discountPercent = hasDiscount
-    ? Math.round((1 - product.FinalPrice / product.SuggestedRetailPrice) * 100)
+    ? Math.round ((1 - product.FinalPrice / product.suggestedRetailPrice) * 100)
     : null;
 
   return `<li class="product-card">
@@ -35,3 +39,9 @@ export default class ProductList {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
   }
 }
+
+
+
+
+
+
