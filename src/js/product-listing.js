@@ -1,10 +1,17 @@
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
+import { loadHeaderFooter, getParam } from './utils.mjs';
 
-const productData = new ProductData("tents");
-const productList = new ProductList(
-  "tents",
-  productData,
-  document.querySelector(".product-list"),
-);
-productList.init();
+loadHeaderFooter();
+
+const category = getParam('category');
+// first create an instance of the ProductData class.
+const DataSource = new ProductData();
+// then get the element you want the product list to render in
+const listElement = document.querySelector('.product-list');
+// then create an instance of the ProductList class and send it the correct information
+const mylist = new ProductList(category, dataSource, listElement);
+// finally call the init method to show the products
+myList.init();pm
+
+

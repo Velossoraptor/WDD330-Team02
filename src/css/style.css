@@ -247,6 +247,17 @@ button {
   grid-column: 3;
 }
 
+.category-link {
+  display: inline-block;
+  margin: 0 10px;
+  transition: transform 0.2s ease;
+}
+
+.category-link {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
