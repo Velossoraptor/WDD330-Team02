@@ -1,7 +1,7 @@
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductList from "./ProductList.mjs";
 
-const productData = new ProductData("tents");
+const externalServices = new ExternalServices("tents");
 const productList = new ProductList(
   "tents",
   productData,
