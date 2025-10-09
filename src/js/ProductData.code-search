@@ -1,34 +1,34 @@
-# Query: ProductData
+# Query: productData
 # ContextLines: 1
 
 11 results - 4 files
 
 dist\index.html:
   8      <link rel="modulepreload" crossorigin href="/assets/utils-C-1cMlo1.js">
-  9:     <link rel="modulepreload" crossorigin href="/assets/ExternalServices-BM_zz1_e.js">
+  9:     <link rel="modulepreload" crossorigin href="/assets/externalServices-BM_zz1_e.js">
   10      <link rel="stylesheet" crossorigin href="/assets/utils-Da5dj-9k.css">
 
 src\js\main.js:
   3  
-  4: const externalServices = new ExternalServices("tents");
+  4: const ExternalServices = new ExternalServices("tents");
   5  const productList = new ProductList(
   6    "tents",
   7:   externalServices,
   8    document.querySelector(".product-list"),
 
 src\js\product-listing.js:
-  1: import ExternalServices from "./ExternalServices.mjs";
+  1: import ExternalServices from "./externalServices.mjs";
   2  import ProductList from "./ProductList.mjs";
 
   7  const category = getParam('category');
-  8: // first create an instance of the ExternalServices class.
-  9: const DataSource = new ExternalServices();
+  8: // first create an instance of the externalServices class.
+  9: const DataSource = new externalServices();
   10  // then get the element you want the product list to render in
 
 src\js\product.js:
   3  import ProductDetails from "./ProductDetails.mjs";
-  4: import ExternalServices from "./ExternalServices.mjs";
+  4: import ExternalServices from "./externalServices.mjs";
   5  
-  6: // Create a new ProductData instance for tents
+  6: // Create a new ExternalServices instance for tents
   7: const dataSource = new ExternalServices("tents");
   8  // Get the product ID from the URL parameters
