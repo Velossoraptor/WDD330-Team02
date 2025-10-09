@@ -54,20 +54,43 @@ export default class CheckoutProcess {
     formData["shipping"] = this.shipping;
     formData["items"] = packageItems(this.list);
 
-    try{
-        const response = await services.checkout(formData);
-        console.log(response);
-        setLocalStorage("so-cart", []);
-        location.assign("/checkout/success.html");
-    } catch (err){
-        console.log(err);
-        removeAllAlerts();
-        for (let message in err.message){
-         alertMessage(err.message[message]);
+    try {
+      const response = await services.checkout(formData);
+      console.log(response);
+      setLocalStorage("so-cart", []);
+      location.assign("/checkout/success.html");
+    } catch (err) {
+      console.log(err);
+      removeAllAlerts();
+        
+      if (err.name === "servicesError") {
+        const errorData = err.message;
+
+        // Specific fields alerts
+        if (errorData.expiration) {
+          alertMessage("Invalid expiration date");
         }
+        if (errorData.cardNumber) {
+          alertMessage("Invalid card number");
+        }
+
+        // General string message
+        if (typeof errorData === "string") {
+          alertMessage(errorData);
+        }
+
+        // Catch-all for other fields
+        for (let key in errorData) {
+          if (key !== "expiration" && key !== "cardNumber") {
+            alertMessage(`${key}: ${errorData[key]}`);
+          }
+        }
+      } else {
+        alertMessage("An unexpected error occurred. Please try again later.");
+      }
     }
   }
-}
+}  
 
 function packageItems(items) {
   return items.map((item) => ({

@@ -42,3 +42,38 @@ export function renderListWithTemplate(TemplateFn, parentElement, list, position
     const html = list.map(TemplateFn);
     parentElement.insertAdjacentHTML(position, html.join(""));
 }
+
+// New function to create alerts at the top of the main element
+export function alertMessage(message, scroll = true) {
+  // Create alert container
+  const alert = document.createElement('div');
+  alert.classList.add('alert');
+
+  // Create message span
+  const msgSpan = document.createElement('span');
+  msgSpan.textContent = message;
+
+  // Create close button
+  const closeBtn = document.createElement('button');
+  closeBtn.textContent = 'X';
+  closeBtn.setAttribute('aria-label', 'Close alert');
+  closeBtn.classList.add('alert-close');
+  
+  // Append message and close button to alert
+  alert.appendChild(msgSpan);
+  alert.appendChild(closeBtn);
+
+  // Add click listener to close button
+  alert.addEventListener('click', function (e) {
+    if (e.target.tagName === 'BUTTON' && e.target.classList.contains('alert-close')) {
+      alert.remove();
+    }
+  });
+
+// Insert alert at the top of the main element
+  const main = document.querySelector('main');
+  main.prepend(alert);
+
+  // Optionally scroll to top to show the alert
+  if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+}
