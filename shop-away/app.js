@@ -36,6 +36,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/', require('./routes/index'));
 app.use('/cart', require('./routes/cart'));
 app.use('/shopify', require('./routes/shopify'));
+app.use('/myProducts', require('./routes/myProducts'));
 
 // Start the server
 const PORT = process.env.PORT || 3001;
