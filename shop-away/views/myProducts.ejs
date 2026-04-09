@@ -25,6 +25,7 @@
           <%= product.body_html %>
         </p>
         <p>Price: <%= product.variants[0]?.price %> USD</p>
+        <a href="/shopify/product/<%= product.id %>">View Details</a>
       </li>
       <% }) %>
   </ul>
