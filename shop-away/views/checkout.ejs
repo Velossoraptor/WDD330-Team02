@@ -1,0 +1,10 @@
+<%- include('partials/header') %>
+<h2>Checkout Summary</h2>
+<ul>
+   <% cart.forEach(item => { %>
+    <li><%= item.name %> - Qty: <%= item.quantity %> - Price: item.price %></li>
+   <% }) %>  
+</ul>
+<p>Total (USD): $<%= totalUSD.toFixed(2) %></p>
+<p>Total (<%= currency %>: <%= totalConverted.toFixed(2) %></p>
+<button>Confirm Purchase</button>
