@@ -25,10 +25,8 @@ app.use(
 app.use(express.static(path.join(__dirname, "public")));
 
 // Middleware: inject cart into all views
-app.use((req, res, next) => {
-  res.locals.cart = req.session.cart || [];
-  next();
-});
+const injectCart = require("./middleware/injectCart");
+app.use(injectCart);
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
