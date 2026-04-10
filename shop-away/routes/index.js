@@ -17,4 +17,9 @@ router.get("/search", async (req, res) => {
   res.render("searchResults", { title: "Search Results", query, results });
 });
 
+router.post("/set-currency", (req, res) => {
+  req.session.currency = req.body.currency;
+  res.redirect("back");
+});  
+
 module.exports = router;
