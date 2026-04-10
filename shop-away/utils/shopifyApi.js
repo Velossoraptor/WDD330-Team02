@@ -4,7 +4,7 @@ const SHOPIFY_STORE = process.env.SHOPIFY_STORE_URL;
 const ACCESS_TOKEN = process.env.SHOPIFY_ACCESS_TOKEN;
 
 async function fetchShopifyProducts({ limit = 250 }) {
-  const url = `https://${SHOPIFY_STORE}/admin/api/2023-10/products.json?limit=${limit}`;
+  const url = `https://${SHOPIFY_STORE}/admin/api/2023-10/products.json?limit=${limit}&status=active`;
 
   try {
     const res = await fetch(url, {
